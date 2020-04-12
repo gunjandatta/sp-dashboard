@@ -1,4 +1,4 @@
-import { Components, jQuery, List, SPTypes, Types, Helper } from "gd-sprest-bs";
+import { Components, Helper, jQuery, List, SPTypes, Types } from "gd-sprest-bs";
 import Strings from "../strings";
 
 /**
@@ -8,6 +8,7 @@ export class Table {
     private _el: HTMLElement = null;
     private _datatable = null;
     private _formUrl: string = null;
+    private _search: string = null;
     private _table: Components.ITable = null;
 
     // Constructor
@@ -111,6 +112,12 @@ export class Table {
 
             // Apply the datatable
             this._datatable = jQuery(this._table.el).DataTable();
+
+            // See if there is a search value set
+            if (this._search) {
+                // Search the table
+                this._datatable.search(this._search).draw();
+            }
         });
     }
 
@@ -126,6 +133,9 @@ export class Table {
 
     // Search the table
     search(search: string) {
+        // Set the search value
+        this._search = search;
+
         // Search the table
         this._datatable.search(search).draw();
     }
