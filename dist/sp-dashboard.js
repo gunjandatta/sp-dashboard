@@ -279,7 +279,7 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("// Module\nvar code = \"<div>\\r\\n    <div class=\\\"row\\\">\\r\\n        <div id=\\\"navigation\\\" class=\\\"col\\\"></div>\\r\\n    </div>\\r\\n    <div class=\\\"row\\\">\\r\\n        <div id=\\\"filter\\\" class=\\\"col\\\"></div>\\r\\n    </div>\\r\\n    <div class=\\\"row\\\">\\r\\n        <div id=\\\"table\\\" class=\\\"col\\\"></div>\\r\\n    </div>\\r\\n</div>\";\n// Exports\nmodule.exports = code;\n\n//# sourceURL=webpack:///./src/dashboard/index.html?");
+eval("// Module\nvar code = \"<div>\\r\\n    <div class=\\\"row\\\">\\r\\n        <div id=\\\"navigation\\\" class=\\\"col\\\"></div>\\r\\n    </div>\\r\\n    <div class=\\\"row\\\">\\r\\n        <div id=\\\"filter\\\" class=\\\"col my-4\\\"></div>\\r\\n    </div>\\r\\n    <div class=\\\"row\\\">\\r\\n        <div id=\\\"table\\\" class=\\\"col\\\"></div>\\r\\n    </div>\\r\\n</div>\";\n// Exports\nmodule.exports = code;\n\n//# sourceURL=webpack:///./src/dashboard/index.html?");
 
 /***/ }),
 
