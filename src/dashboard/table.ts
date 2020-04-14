@@ -26,7 +26,7 @@ export class Table {
     // Clears the component
     private clear() {
         // Clear the elements
-        while (this._el.firstChild) { this._el.firstChild.remove(); }
+        while (this._el.firstChild) { this._el.removeChild(this._el.firstChild); }
     }
 
     // Load the form url
