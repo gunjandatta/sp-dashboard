@@ -8,23 +8,12 @@ module.exports = (env, argv) => {
     // Return the configuration
     return {
         // Main project files
-        entry: [
-            "./node_modules/gd-sprest-bs/dist/gd-sprest-bs-icons.min.js",
-            path.resolve(__dirname, project.main)
-        ],
+        entry: path.resolve(__dirname, project.main),
 
         // Output information
         output: {
             path: path.resolve(__dirname, "dist"),
             filename: project.name + (isDev ? "" : ".min") + ".js"
-        },
-
-        // External Libs
-        // Since we are including the library as part of the entry point, we don't
-        // want webpack to bundle the library twice.
-        externals: {
-            "gd-sprest": "$REST",
-            "gd-sprest-bs": "$REST"
         },
 
         // Resolve the file names
