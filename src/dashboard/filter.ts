@@ -3,7 +3,7 @@ import { Components } from "gd-sprest-bs";
 // Filter Properties
 export interface IFilterProps {
     el: HTMLElement;
-    onChange: (value: string) => void;
+    onFilter: (value: string) => void;
 }
 
 /**
@@ -44,7 +44,7 @@ export class Filter {
                             ],
                             onChange: (item: Components.ICheckboxGroupItem) => {
                                 // Call the change event
-                                this._props.onChange(item ? item.label : "");
+                                this._props.onFilter(item ? item.label : "");
                             }
                         });
                     }

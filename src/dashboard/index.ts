@@ -44,9 +44,9 @@ export class Dashboard {
         // Render the filter
         new Filter({
             el: this._el.querySelector("#filter"),
-            onChange: value => {
+            onFilter: value => {
                 // Filter the table data
-                table.applyFilter(value);
+                table.filter(value);
             }
         });
 

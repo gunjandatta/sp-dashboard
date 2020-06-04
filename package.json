@@ -22,7 +22,7 @@
   "dependencies": {
     "datatables.net": "^1.10.21",
     "datatables.net-dt": "^1.10.21",
-    "gd-sprest-bs": "^4.5.7"
+    "gd-sprest-bs": "^4.6.1"
   },
   "devDependencies": {
     "@babel/core": "^7.10.2",

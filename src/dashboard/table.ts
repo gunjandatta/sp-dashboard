@@ -125,8 +125,8 @@ export class Table {
      * Public Interface
      */
 
-    // Applies a filter to the table
-    applyFilter(filter: string) {
+    // Filters to the table
+    filter(filter: string) {
         // Render the table
         this.render(filter);
     }
