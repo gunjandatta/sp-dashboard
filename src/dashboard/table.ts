@@ -1,4 +1,5 @@
-import { Components, Helper, jQuery, List, SPTypes, Types } from "gd-sprest-bs";
+import * as jQuery from "jquery";
+import { Components, Helper, List, SPTypes, Types } from "gd-sprest-bs";
 import Strings from "../strings";
 
 /**

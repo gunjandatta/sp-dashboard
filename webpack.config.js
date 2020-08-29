@@ -18,7 +18,7 @@ module.exports = (env, argv) => {
 
         // Resolve the file names
         resolve: {
-            extensions: [".js", ".ts"]
+            extensions: [".css", ".html", ".js", ".ts"]
         },
 
         // Compiler Information

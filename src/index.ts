@@ -3,18 +3,9 @@ import { Dashboard } from "./dashboard";
 import Strings from "./strings";
 
 // Ensure the data tables plugin is configured
-import * as DataTable from "datatables.net";
-import { jQuery } from "gd-sprest-bs";
-import "datatables.net-dt/css/jquery.dataTables.min.css";
-
-// See if jQuery is defined in the DataTable lib
-if (DataTable.prototype.constructor.$ == undefined) {
-    // Set the reference
-    DataTable.prototype.constructor.$ = jQuery;
-} else {
-    // Update this jQuery reference for this library
-    window["$REST"].jQuery = DataTable.prototype.constructor.$;
-}
+import "jquery";
+import "datatables.net";
+import "datatables.net-bs4";
 
 // Create the global variable for this solution
 window[Strings.GlobalVariable] = {

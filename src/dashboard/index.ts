@@ -1,7 +1,7 @@
 import { Filter } from "./filter";
 import { Navigation } from "./navigation";
 import { Table } from "./table";
-import * as HTML from "./index.html";
+import * as HTML from "./template.html";
 import "./styles.css";
 
 /**
