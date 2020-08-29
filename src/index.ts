@@ -2,7 +2,7 @@ import { Configuration } from "./cfg";
 import { Dashboard } from "./dashboard";
 import Strings from "./strings";
 
-// Ensure the data tables plugin is configured
+// Import the datatables.net library
 import "jquery";
 import "datatables.net";
 import "datatables.net-bs4";
