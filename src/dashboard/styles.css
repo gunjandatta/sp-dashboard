@@ -1,7 +1,0 @@
-/** Datatables Bootstrap Plugin */
-@import "datatables.net-bs4";
-
-/** Hide the datatable search box */
-#table .dataTables_filter {
-    display: none;
-}

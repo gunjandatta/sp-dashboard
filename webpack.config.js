@@ -1,16 +1,16 @@
-var path = require("path");
 var project = require("./package.json");
+var path = require("path");
 
-// Export the configuration
+// Return the configuration
 module.exports = (env, argv) => {
-    var isDev = argv.mode === "development";
-
-    // Return the configuration
+    var isDev = argv.mode !== "production";
     return {
-        // Main project files
-        entry: path.resolve(__dirname, project.main),
+        // Set the main source as the entry point
+        entry: [
+            path.resolve(__dirname, project.main)
+        ],
 
-        // Output information
+        // Output location
         output: {
             path: path.resolve(__dirname, "dist"),
             filename: project.name + (isDev ? "" : ".min") + ".js"
@@ -18,49 +18,52 @@ module.exports = (env, argv) => {
 
         // Resolve the file names
         resolve: {
-            extensions: [".css", ".html", ".js", ".ts"]
+            extensions: [".js", ".css", ".scss", ".ts"]
         },
 
-        // Compiler Information
+        // Dev Server
+        devServer: {
+            inline: true,
+            hot: true,
+            open: true,
+            publicPath: "/dist/"
+        },
+
+        // Loaders
         module: {
             rules: [
-                // Handle CSS Files
+                // SASS to JavaScript
                 {
-                    test: /\.css$/,
+                    // Target the sass and css files
+                    test: /\.s?css$/,
+                    // Define the compiler to use
                     use: [
-                        // Create the style nodes from the CommonJS code
+                        // Create style nodes from the CommonJS code
                         { loader: "style-loader" },
                         // Translate css to CommonJS
-                        { loader: "css-loader" }
+                        { loader: "css-loader" },
+                        // Compile sass to css
+                        { loader: "sass-loader" }
                     ]
-                },
-                // Handle HTML Files
-                {
-                    test: /\.html$/,
-                    exclude: "/node_modules/",
-                    use: [{ loader: "html-loader" }]
                 },
                 // Handle Image Files
                 {
-                    test: /\.(jpe?g|png|gif|svg)$/,
-                    use: "url-loader"
+                    test: /\.(jpe?g|png|gif|svg|eot|woff|ttf)$/,
+                    loader: "url-loader"
                 },
-                // Handle TypeScript Files
+                // TypeScript to JavaScript
                 {
+                    // Target TypeScript files
                     test: /\.tsx?$/,
                     exclude: /node_modules/,
                     use: [
-                        // Step 2 - Compile JavaScript ES6 to JavaScript Current Standards
+                        // JavaScript (ES5) -> JavaScript (Current)
                         {
                             loader: "babel-loader",
-                            options: {
-                                presets: ["@babel/preset-env"]
-                            }
+                            options: { presets: ["@babel/preset-env"] }
                         },
-                        // Step 1 - Compile TypeScript to JavaScript ES6
-                        {
-                            loader: "ts-loader"
-                        }
+                        // TypeScript -> JavaScript (ES5)
+                        { loader: "ts-loader" }
                     ]
                 }
             ]

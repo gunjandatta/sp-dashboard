@@ -1,23 +1,29 @@
+import { ContextInfo } from "gd-sprest-bs";
+import { App } from "./app";
 import { Configuration } from "./cfg";
-import { Dashboard } from "./dashboard";
 import Strings from "./strings";
 
-// Import the datatables.net library
-import "jquery";
-import "datatables.net";
-import "datatables.net-bs4";
+// Styling
+import "./styles.scss";
+
+// Get the element and render the app if it is found
+let elApp = document.querySelector("#" + Strings.AppElementId) as HTMLElement;
+if (elApp) {
+    // Create the application
+    new App(elApp);
+}
 
 // Create the global variable for this solution
 window[Strings.GlobalVariable] = {
-    Configuration
-}
+    Configuration,
+    render: (el, context?) => {
+        // See if the page context exists
+        if (context) {
+            // Set the context
+            ContextInfo.setPageContext(context);
+        }
 
-// Get the main element to render the solution to
-let el = document.getElementById(Strings.AppElementId);
-if (el) {
-    // Initialize the dashboard
-    new Dashboard(el);
-} else {
-    // Log
-    console.log("[" + Strings.ProjectName + "] Error finding the element with id '" + Strings.AppElementId + "'");
+        // Create the application
+        new App(el);
+    }
 }

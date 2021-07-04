@@ -9,5 +9,6 @@ export default {
     },
     ProjectName: "SP Dashboard",
     ProjectDescription: "Created using the gd-sprest-bs library.",
-    SolutionUrl: "/sites/dev/siteassets/sp-dashboard/index.html"
+    SolutionUrl: "/sites/dev/siteassets/sp-dashboard/index.html",
+    Version: "0.1"
 }
