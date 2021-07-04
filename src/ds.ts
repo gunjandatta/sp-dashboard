@@ -27,7 +27,8 @@ export class DataSource {
                     });
                 }
 
-                // Resolve the request
+                // Set the filters and resolve the promise
+                this._statusFilters = items;
                 resolve(items);
             }, reject);
         });
