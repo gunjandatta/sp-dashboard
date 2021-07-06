@@ -24,7 +24,7 @@
     "dependencies": {
         "datatables.net": "^1.10.25",
         "datatables.net-bs5": "^1.10.25",
-        "dattatable": "^0.3.0",
+        "dattatable": "^0.3.4",
         "gd-sprest-bs": "^7.7.6",
         "jquery": "^3.6.0",
         "moment": "^2.29.1",

@@ -27,10 +27,9 @@ export class App {
         // Create the dashboard
         let dashboard = new Dashboard({
             el,
-            header: {
-                title: Strings.ProjectName
-            },
+            hideHeader: true,
             rows: items,
+            useModal: true,
             filters: [{
                 header: "By Status",
                 items: DataSource.StatusFilters,
@@ -64,7 +63,7 @@ export class App {
             footer: {
                 itemsEnd: [
                     {
-                        text: Strings.Version
+                        text: "v" + Strings.Version
                     }
                 ]
             },
