@@ -2,7 +2,10 @@ import { Components, List, Types } from "gd-sprest-bs";
 import Strings from "./strings";
 
 // Item
-export interface IItem extends Types.SP.ListItem { }
+export interface IItem extends Types.SP.ListItem {
+    ItemType: string;
+    Status: string;
+}
 
 /**
  * Data Source

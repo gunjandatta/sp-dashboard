@@ -1,6 +1,6 @@
 import { Dashboard, ItemForm } from "dattatable";
-import { Components, Types } from "gd-sprest-bs";
-import { DataSource } from "./ds";
+import { Components } from "gd-sprest-bs";
+import { DataSource, IItem } from "./ds";
 import Strings from "./strings";
 
 /**
@@ -81,7 +81,7 @@ export class App {
                 {
                     name: "",
                     title: "Title",
-                    onRenderCell: (el, column, item: Types.SP.ListItem) => {
+                    onRenderCell: (el, column, item: IItem) => {
                         // Render a buttons
                         Components.ButtonGroup({
                             el,
