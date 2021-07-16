@@ -51,11 +51,22 @@ module.exports = (env, argv) => {
                     test: /\.(jpe?g|png|gif|svg|eot|woff|ttf)$/,
                     loader: "url-loader"
                 },
+                // JavaScript
+                {
+                    // Target JavaScript files
+                    test: /\.jsx?$/,
+                    use: [
+                        // JavaScript (ES5) -> JavaScript (Current)
+                        {
+                            loader: "babel-loader",
+                            options: { presets: ["@babel/preset-env"] }
+                        }
+                    ]
+                },
                 // TypeScript to JavaScript
                 {
                     // Target TypeScript files
                     test: /\.tsx?$/,
-                    exclude: /node_modules/,
                     use: [
                         // JavaScript (ES5) -> JavaScript (Current)
                         {
