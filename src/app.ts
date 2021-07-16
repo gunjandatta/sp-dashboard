@@ -30,14 +30,16 @@ export class App {
             hideHeader: true,
             rows: items,
             useModal: true,
-            filters: [{
-                header: "By Status",
-                items: DataSource.StatusFilters,
-                onFilter: (value) => {
-                    // Filter the table
-                    dashboard.filter(2, value);
-                }
-            }],
+            filters: {
+                items: [{
+                    header: "By Status",
+                    items: DataSource.StatusFilters,
+                    onFilter: (value) => {
+                        // Filter the table
+                        dashboard.filter(2, value);
+                    }
+                }]
+            },
             navigation: {
                 title: Strings.ProjectName,
                 items: [
