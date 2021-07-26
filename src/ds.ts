@@ -55,8 +55,25 @@ export class DataSource {
         }
     }
 
+    // Initializes the application
+    static init(): PromiseLike<void> {
+        // Return a promise
+        return new Promise((resolve, reject) => {
+            // Load the data
+            this.load().then(() => {
+                // Load the status filters
+                this.loadStatusFilters().then(() => {
+                    // Resolve the request
+                    resolve();
+                }, reject);
+            }, reject)
+        });
+    }
+
     // Loads the list data
-    static load(): PromiseLike<Array<IItem>> {
+    private static _items: IItem[] = null;
+    static get Items(): IItem[] { return this._items; }
+    static load(): PromiseLike<IItem[]> {
         // Return a promise
         return new Promise((resolve, reject) => {
             this.loadStatusFilters().then(() => {
@@ -68,8 +85,11 @@ export class DataSource {
                 }).execute(
                     // Success
                     items => {
+                        // Set the items
+                        this._items = items.results as any;
+
                         // Resolve the request
-                        resolve(items.results as any);
+                        resolve(this._items);
                     },
                     // Error
                     () => { reject(); }

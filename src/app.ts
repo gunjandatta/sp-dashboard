@@ -13,18 +13,15 @@ export class App {
         // Set the list name
         ItemForm.ListName = Strings.Lists.Main;
 
-        // Load the data
-        DataSource.load().then(items => {
-            // Load the filters
-            DataSource.loadStatusFilters().then(() => {
-                // Render the dashboard
-                this.render(el, items);
-            });
+        // Initialize the application
+        DataSource.init().then(() => {
+            // Render the dashboard
+            this.render(el);
         });
     }
 
     // Renders the dashboard
-    private render(el: HTMLElement, items: any[]) {
+    private render(el: HTMLElement) {
         // Create the dashboard
         let dashboard = new Dashboard({
             el,
@@ -70,7 +67,7 @@ export class App {
                 ]
             },
             table: {
-                rows: items,
+                rows: DataSource.Items,
                 dtProps: {
                     dom: 'rt<"row"<"col-sm-4"l><"col-sm-4"i><"col-sm-4"p>>',
                     columnDefs: [
