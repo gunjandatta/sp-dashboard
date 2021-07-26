@@ -28,13 +28,12 @@ export class App {
         let dashboard = new Dashboard({
             el,
             hideHeader: true,
-            rows: items,
             useModal: true,
             filters: {
                 items: [{
                     header: "By Status",
                     items: DataSource.StatusFilters,
-                    onFilter: (value) => {
+                    onFilter: (value: string) => {
                         // Filter the table
                         dashboard.filter(2, value);
                     }
@@ -69,65 +68,68 @@ export class App {
                     }
                 ]
             },
-            dtProps: {
-                dom: 'rt<"row"<"col-sm-4"l><"col-sm-4"i><"col-sm-4"p>>',
-                "columnDefs": [
+            table: {
+                rows: items,
+                dtProps: {
+                    dom: 'rt<"row"<"col-sm-4"l><"col-sm-4"i><"col-sm-4"p>>',
+                    "columnDefs": [
+                        {
+                            "targets": 0,
+                            "orderable": false,
+                            "searchable": false
+                        }
+                    ]
+                },
+                columns: [
                     {
-                        "targets": 0,
-                        "orderable": false,
-                        "searchable": false
+                        name: "",
+                        title: "Title",
+                        onRenderCell: (el, column, item: IItem) => {
+                            // Render a buttons
+                            Components.ButtonGroup({
+                                el,
+                                buttons: [
+                                    {
+                                        text: item.Title,
+                                        type: Components.ButtonTypes.OutlinePrimary,
+                                        onClick: () => {
+                                            // Show the display form
+                                            ItemForm.view({
+                                                itemId: item.Id
+                                            });
+                                        }
+                                    },
+                                    {
+                                        text: "Edit",
+                                        type: Components.ButtonTypes.OutlineSuccess,
+                                        onClick: () => {
+                                            // Show the display form
+                                            ItemForm.edit({
+                                                itemId: item.Id,
+                                                onUpdate: () => {
+                                                    // Refresh the data
+                                                    DataSource.load().then(items => {
+                                                        // Update the data
+                                                        dashboard.refresh(items);
+                                                    });
+                                                }
+                                            });
+                                        }
+                                    }
+                                ]
+                            });
+                        }
+                    },
+                    {
+                        name: "ItemType",
+                        title: "Item Type"
+                    },
+                    {
+                        name: "Status",
+                        title: "Status"
                     }
                 ]
-            },
-            columns: [
-                {
-                    name: "",
-                    title: "Title",
-                    onRenderCell: (el, column, item: IItem) => {
-                        // Render a buttons
-                        Components.ButtonGroup({
-                            el,
-                            buttons: [
-                                {
-                                    text: item.Title,
-                                    type: Components.ButtonTypes.OutlinePrimary,
-                                    onClick: () => {
-                                        // Show the display form
-                                        ItemForm.view({
-                                            itemId: item.Id
-                                        });
-                                    }
-                                },
-                                {
-                                    text: "Edit",
-                                    type: Components.ButtonTypes.OutlineSuccess,
-                                    onClick: () => {
-                                        // Show the display form
-                                        ItemForm.edit({
-                                            itemId: item.Id,
-                                            onUpdate: () => {
-                                                // Refresh the data
-                                                DataSource.load().then(items => {
-                                                    // Update the data
-                                                    dashboard.refresh(items);
-                                                });
-                                            }
-                                        });
-                                    }
-                                }
-                            ]
-                        });
-                    }
-                },
-                {
-                    name: "ItemType",
-                    title: "Item Type"
-                },
-                {
-                    name: "Status",
-                    title: "Status"
-                }
-            ]
+            }
         });
     }
 }
