@@ -1,5 +1,6 @@
 import { Dashboard, ItemForm } from "dattatable";
 import { Components } from "gd-sprest-bs";
+import * as jQuery from "jquery";
 import { DataSource, IItem } from "./ds";
 import Strings from "./strings";
 
@@ -72,13 +73,25 @@ export class App {
                 rows: items,
                 dtProps: {
                     dom: 'rt<"row"<"col-sm-4"l><"col-sm-4"i><"col-sm-4"p>>',
-                    "columnDefs": [
+                    columnDefs: [
                         {
                             "targets": 0,
                             "orderable": false,
                             "searchable": false
                         }
-                    ]
+                    ],
+                    // Add some classes to the dataTable elements
+                    drawCallback: function () {
+                        jQuery('.table', this._table).removeClass('no-footer');
+                        jQuery('.table', this._table).addClass('tbl-footer');
+                        jQuery('.table thead th', this._table).addClass('align-middle');
+                        jQuery('.table tbody td', this._table).addClass('align-middle');
+                        jQuery('.dataTables_info', this._table).addClass('text-center');
+                        jQuery('.dataTables_length', this._table).addClass('pt-2');
+                        jQuery('.dataTables_paginate', this._table).addClass('pt-03');
+                    },
+                    // Order by the 1st column by default; ascending
+                    order: [[1, "asc"]]
                 },
                 columns: [
                     {
