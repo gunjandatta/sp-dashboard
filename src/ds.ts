@@ -76,25 +76,23 @@ export class DataSource {
     static load(): PromiseLike<IItem[]> {
         // Return a promise
         return new Promise((resolve, reject) => {
-            this.loadStatusFilters().then(() => {
-                // Load the data
-                List(Strings.Lists.Main).Items().query({
-                    GetAllItems: true,
-                    OrderBy: ["Title"],
-                    Top: 5000
-                }).execute(
-                    // Success
-                    items => {
-                        // Set the items
-                        this._items = items.results as any;
+            // Load the data
+            List(Strings.Lists.Main).Items().query({
+                GetAllItems: true,
+                OrderBy: ["Title"],
+                Top: 5000
+            }).execute(
+                // Success
+                items => {
+                    // Set the items
+                    this._items = items.results as any;
 
-                        // Resolve the request
-                        resolve(this._items);
-                    },
-                    // Error
-                    () => { reject(); }
-                );
-            }, reject);
+                    // Resolve the request
+                    resolve(this._items);
+                },
+                // Error
+                () => { reject(); }
+            );
         });
     }
 }
