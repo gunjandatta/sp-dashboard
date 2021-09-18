@@ -77,15 +77,20 @@ export class App {
                             "searchable": false
                         }
                     ],
-                    // Add some classes to the dataTable elements
-                    drawCallback: function () {
-                        jQuery('.table', this._table).removeClass('no-footer');
-                        jQuery('.table', this._table).addClass('tbl-footer');
-                        jQuery('.table thead th', this._table).addClass('align-middle');
-                        jQuery('.table tbody td', this._table).addClass('align-middle');
-                        jQuery('.dataTables_info', this._table).addClass('text-center');
-                        jQuery('.dataTables_length', this._table).addClass('pt-2');
-                        jQuery('.dataTables_paginate', this._table).addClass('pt-03');
+                    createdRow: function (row, data, index) {
+                        jQuery('td', row).addClass('align-middle');
+                    },
+                    drawCallback: function (settings) {
+                        let api = new jQuery.fn.dataTable.Api(settings) as any;
+                        jQuery(api.context[0].nTable).removeClass('no-footer');
+                        jQuery(api.context[0].nTable).addClass('tbl-footer');
+                        jQuery(api.context[0].nTable).addClass('table-striped');
+                        jQuery(api.context[0].nTableWrapper).find('.dataTables_info').addClass('text-center');
+                        jQuery(api.context[0].nTableWrapper).find('.dataTables_length').addClass('pt-2');
+                        jQuery(api.context[0].nTableWrapper).find('.dataTables_paginate').addClass('pt-03');
+                    },
+                    headerCallback: function (thead, data, start, end, display) {
+                        jQuery('th', thead).addClass('align-middle');
                     },
                     // Order by the 1st column by default; ascending
                     order: [[1, "asc"]]
