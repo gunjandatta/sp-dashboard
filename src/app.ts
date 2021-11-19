@@ -13,11 +13,8 @@ export class App {
         // Set the list name
         ItemForm.ListName = Strings.Lists.Main;
 
-        // Initialize the application
-        DataSource.init().then(() => {
-            // Render the dashboard
-            this.render(el);
-        });
+        // Render the dashboard
+        this.render(el);
     }
 
     // Renders the dashboard
