@@ -3,9 +3,10 @@
     "solution": {
         "name": "dashboard-client-side-solution",
         "id": "56877a9d-8a61-40e5-9744-1de2c79a31e7",
-        "version": "0.0.0.1",
+        "version": "0.0.0.3",
         "includeClientSideAssets": true,
         "isDomainIsolated": false,
+        "skipFeatureDeployment": true,
         "developer": {
             "name": "",
             "websiteUrl": "",

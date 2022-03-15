@@ -20,7 +20,7 @@ export default class DashboardWebPart extends BaseClientSideWebPart<IDashboardWe
 
   public render(): void {
     // Render the dashboard
-    SPDashboard.render(this.domElement, this.context.pageContext);
+    SPDashboard.render(this.domElement, this.context);
   }
 
   protected get dataVersion(): Version {
