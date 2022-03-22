@@ -43,7 +43,12 @@ module.exports = (env, argv) => {
                         // Translate css to CommonJS
                         { loader: "css-loader" },
                         // Compile sass to css
-                        { loader: "sass-loader" }
+                        {
+                            loader: "sass-loader",
+                            options: {
+                                implementation: require("sass")
+                            }
+                        }
                     ]
                 },
                 // Handle Image Files
