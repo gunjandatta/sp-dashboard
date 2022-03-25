@@ -13,7 +13,8 @@ module.exports = (env, argv) => {
         // Output location
         output: {
             path: path.resolve(__dirname, "dist"),
-            filename: project.name + (isDev ? "" : ".min") + ".js"
+            filename: project.name + (isDev ? "" : ".min") + ".js",
+            publicPath: ""
         },
 
         // Resolve the file names
