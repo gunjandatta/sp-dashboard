@@ -21,7 +21,6 @@ const Strings = {
     },
     ProjectName: "SP Dashboard",
     ProjectDescription: "Created using the gd-sprest-bs library.",
-    SolutionUrl: "/sites/dev/siteassets/sp-dashboard/index.html",
     SourceUrl: ContextInfo.webServerRelativeUrl,
     Version: "0.1"
 };
