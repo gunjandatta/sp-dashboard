@@ -1,4 +1,3 @@
-
 import { ContextInfo } from "gd-sprest-bs";
 import { InstallationRequired } from "dattatable";
 import { App } from "./app";
