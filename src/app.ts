@@ -1,7 +1,7 @@
-import { Dashboard, ItemForm } from "dattatable";
+import { Dashboard } from "dattatable";
 import { Components } from "gd-sprest-bs";
 import * as jQuery from "jquery";
-import { DataSource, IItem } from "./ds";
+import { DataSource, IListItem } from "./ds";
 import Strings from "./strings";
 
 /**
@@ -10,9 +10,6 @@ import Strings from "./strings";
 export class App {
     // Constructor
     constructor(el: HTMLElement) {
-        // Set the list name
-        ItemForm.ListName = Strings.Lists.Main;
-
         // Render the dashboard
         this.render(el);
     }
@@ -42,13 +39,13 @@ export class App {
                         text: "Create Item",
                         isButton: true,
                         onClick: () => {
-                            // Create an item
-                            ItemForm.create({
+                            // Show the new form
+                            DataSource.List.createItem({
                                 onUpdate: () => {
-                                    // Load the data
-                                    DataSource.load().then(items => {
+                                    // Refresh the data
+                                    DataSource.refresh().then(() => {
                                         // Refresh the table
-                                        dashboard.refresh(items);
+                                        dashboard.refresh(DataSource.ListItems);
                                     });
                                 }
                             });
@@ -64,7 +61,7 @@ export class App {
                 ]
             },
             table: {
-                rows: DataSource.Items,
+                rows: DataSource.ListItems,
                 dtProps: {
                     dom: 'rt<"row"<"col-sm-4"l><"col-sm-4"i><"col-sm-4"p>>',
                     columnDefs: [
@@ -96,7 +93,7 @@ export class App {
                     {
                         name: "",
                         title: "Title",
-                        onRenderCell: (el, column, item: IItem) => {
+                        onRenderCell: (el, column, item: IListItem) => {
                             // Render a buttons
                             Components.ButtonGroup({
                                 el,
@@ -106,7 +103,7 @@ export class App {
                                         type: Components.ButtonTypes.OutlinePrimary,
                                         onClick: () => {
                                             // Show the display form
-                                            ItemForm.view({
+                                            DataSource.List.viewItem({
                                                 itemId: item.Id
                                             });
                                         }
@@ -116,13 +113,13 @@ export class App {
                                         type: Components.ButtonTypes.OutlineSuccess,
                                         onClick: () => {
                                             // Show the edit form
-                                            ItemForm.edit({
+                                            DataSource.List.editItem({
                                                 itemId: item.Id,
                                                 onUpdate: () => {
                                                     // Refresh the data
-                                                    DataSource.load().then(items => {
-                                                        // Update the data
-                                                        dashboard.refresh(items);
+                                                    DataSource.refresh().then(() => {
+                                                        // Refresh the table
+                                                        dashboard.refresh(DataSource.ListItems);
                                                     });
                                                 }
                                             });

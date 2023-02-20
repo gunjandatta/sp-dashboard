@@ -1,8 +1,12 @@
+import { List } from "dattatable";
 import { Components, Types, Web } from "gd-sprest-bs";
 import Strings from "./strings";
 
-// Item
-export interface IItem extends Types.SP.ListItem {
+/**
+ * List Item
+ * Add your custom fields here
+ */
+export interface IListItem extends Types.SP.ListItem {
     ItemType: string;
     Status: string;
 }
@@ -11,6 +15,13 @@ export interface IItem extends Types.SP.ListItem {
  * Data Source
  */
 export class DataSource {
+    // List
+    private static _list: List<IListItem> = null;
+    static get List(): List<IListItem> { return this._list; }
+
+    // List Items
+    static get ListItems(): IListItem[] { return this.List.Items; }
+
     // Status Filters
     private static _statusFilters: Components.ICheckboxGroupItem[] = null;
     static get StatusFilters(): Components.ICheckboxGroupItem[] { return this._statusFilters; }
@@ -59,40 +70,32 @@ export class DataSource {
     static init(): PromiseLike<void> {
         // Return a promise
         return new Promise((resolve, reject) => {
-            // Load the data
-            this.load().then(() => {
-                // Load the status filters
-                this.loadStatusFilters().then(() => {
-                    // Resolve the request
-                    resolve();
-                }, reject);
-            }, reject)
+            // Load the list
+            this._list = new List<IListItem>({
+                listName: Strings.Lists.Main,
+                itemQuery: {
+                    GetAllItems: true,
+                    OrderBy: ["Title"],
+                    Top: 5000
+                },
+                onLoadItemsError: reject,
+                onItemsLoaded: () => {
+                    // Load the status filters
+                    this.loadStatusFilters().then(() => {
+                        // Resolve the request
+                        resolve();
+                    }, reject);
+                }
+            });
         });
     }
 
-    // Loads the list data
-    private static _items: IItem[] = null;
-    static get Items(): IItem[] { return this._items; }
-    static load(): PromiseLike<IItem[]> {
+    // Refreshes the list data
+    static refresh(): PromiseLike<any> {
         // Return a promise
         return new Promise((resolve, reject) => {
-            // Load the data
-            Web(Strings.SourceUrl).Lists(Strings.Lists.Main).Items().query({
-                GetAllItems: true,
-                OrderBy: ["Title"],
-                Top: 5000
-            }).execute(
-                // Success
-                items => {
-                    // Set the items
-                    this._items = items.results as any;
-
-                    // Resolve the request
-                    resolve(this._items);
-                },
-                // Error
-                () => { reject(); }
-            );
+            // Refresh the data
+            DataSource.List.refresh().then(resolve, reject);
         });
     }
 }
