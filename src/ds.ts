@@ -78,8 +78,8 @@ export class DataSource {
                     OrderBy: ["Title"],
                     Top: 5000
                 },
-                onLoadItemsError: reject,
-                onItemsLoaded: () => {
+                onInitError: reject,
+                onInitialized: () => {
                     // Load the status filters
                     this.loadStatusFilters().then(() => {
                         // Resolve the request
@@ -91,7 +91,7 @@ export class DataSource {
     }
 
     // Refreshes the list data
-    static refresh(): PromiseLike<any> {
+    static refresh(): PromiseLike<IListItem[]> {
         // Return a promise
         return new Promise((resolve, reject) => {
             // Refresh the data

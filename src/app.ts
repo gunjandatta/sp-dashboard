@@ -40,7 +40,7 @@ export class App {
                         isButton: true,
                         onClick: () => {
                             // Show the new form
-                            DataSource.List.createItem({
+                            DataSource.List.newForm({
                                 onUpdate: () => {
                                     // Refresh the data
                                     DataSource.refresh().then(() => {
@@ -103,7 +103,7 @@ export class App {
                                         type: Components.ButtonTypes.OutlinePrimary,
                                         onClick: () => {
                                             // Show the display form
-                                            DataSource.List.viewItem({
+                                            DataSource.List.viewForm({
                                                 itemId: item.Id
                                             });
                                         }
@@ -113,7 +113,7 @@ export class App {
                                         type: Components.ButtonTypes.OutlineSuccess,
                                         onClick: () => {
                                             // Show the edit form
-                                            DataSource.List.editItem({
+                                            DataSource.List.editForm({
                                                 itemId: item.Id,
                                                 onUpdate: () => {
                                                     // Refresh the data
