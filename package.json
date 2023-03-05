@@ -22,25 +22,26 @@
     },
     "homepage": "https://github.com/gunjandatta/sp-dashboard#readme",
     "dependencies": {
-        "datatables.net": "^1.13.2",
-        "datatables.net-bs5": "^1.13.2",
-        "dattatable": "^2.3.6",
-        "gd-sprest-bs": "^10.10.4",
+        "datatables.net": "^1.13.3",
+        "datatables.net-bs5": "^1.13.3",
+        "dattatable": "^2.5.5",
+        "gd-sprest-bs": "^10.10.5",
         "jquery": "^3.6.3",
         "moment": "^2.29.4"
     },
     "devDependencies": {
-        "@babel/core": "^7.17.8",
-        "@babel/preset-env": "^7.16.11",
-        "babel-loader": "^8.2.4",
-        "css-loader": "^6.7.1",
-        "html-loader": "^3.1.0",
-        "sass": "^1.49.9",
+        "@babel/core": "^7.21.0",
+        "@babel/preset-env": "^7.20.2",
+        "babel-loader": "^8.3.0",
+        "css-loader": "^6.7.3",
+        "html-loader": "^3.1.2",
+        "sass": "^1.58.3",
         "sass-loader": "^12.6.0",
         "style-loader": "^3.3.1",
-        "ts-loader": "^9.2.8",
+        "ts-loader": "^9.4.2",
+        "typescript": "^4.9.5",
         "url-loader": "^4.1.1",
-        "webpack": "^5.70.0",
-        "webpack-cli": "^4.9.2"
+        "webpack": "^5.75.0",
+        "webpack-cli": "^4.10.0"
     }
 }

@@ -32,7 +32,7 @@ const GlobalVariable = {
             // Error
             () => {
                 // See if an installation is required
-                InstallationRequired.requiresInstall(Configuration).then(installFl => {
+                InstallationRequired.requiresInstall({ cfg: Configuration }).then(installFl => {
                     // See if an install is required
                     if (installFl) {
                         // Show the dialog
