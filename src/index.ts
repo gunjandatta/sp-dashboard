@@ -1,4 +1,4 @@
-import { ContextInfo } from "gd-sprest-bs";
+import { ContextInfo, ThemeManager } from "gd-sprest-bs";
 import { InstallationRequired } from "dattatable";
 import { App } from "./app";
 import { Configuration } from "./cfg";
@@ -25,8 +25,11 @@ const GlobalVariable = {
         DataSource.init().then(
             // Success
             () => {
-                // Create the application
-                new App(el);
+                // Load the current theme
+                ThemeManager.load(true).then(() => {
+                    // Create the application
+                    new App(el);
+                });
             },
 
             // Error
