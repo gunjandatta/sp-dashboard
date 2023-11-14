@@ -25,7 +25,7 @@ const GlobalVariable = {
         DataSource.init().then(
             // Success
             () => {
-                // Load the current theme
+                // Load the current theme and apply it to the components
                 ThemeManager.load(true).then(() => {
                     // Create the application
                     new App(el);
