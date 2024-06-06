@@ -9,7 +9,7 @@ import { escape } from '@microsoft/sp-lodash-subset';
 import styles from './DashboardWebPart.module.scss';
 import * as strings from 'DashboardWebPartStrings';
 
-import "../../../../dist/sp-dashboard.min.js";
+import "main-lib";
 declare var SPDashboard;
 
 export interface IDashboardWebPartProps {
