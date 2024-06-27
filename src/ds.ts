@@ -1,5 +1,5 @@
 import { List } from "dattatable";
-import { Components, Types, Web } from "gd-sprest-bs";
+import { Components, Types } from "gd-sprest-bs";
 import Strings from "./strings";
 
 /**
@@ -25,27 +25,21 @@ export class DataSource {
     // Status Filters
     private static _statusFilters: Components.ICheckboxGroupItem[] = null;
     static get StatusFilters(): Components.ICheckboxGroupItem[] { return this._statusFilters; }
-    static loadStatusFilters(): PromiseLike<Components.ICheckboxGroupItem[]> {
-        // Return a promise
-        return new Promise((resolve, reject) => {
-            // Get the status field
-            Web(Strings.SourceUrl).Lists(Strings.Lists.Main).Fields("Status").execute((fld: Types.SP.FieldChoice) => {
-                let items: Components.ICheckboxGroupItem[] = [];
+    static loadStatusFilters() {
+        let items: Components.ICheckboxGroupItem[] = [];
 
-                // Parse the choices
-                for (let i = 0; i < fld.Choices.results.length; i++) {
-                    // Add an item
-                    items.push({
-                        label: fld.Choices.results[i],
-                        type: Components.CheckboxGroupTypes.Switch
-                    });
-                }
+        // Parse the choices
+        let fld: Types.SP.FieldChoice = this.List.getField("Status");
+        for (let i = 0; i < fld.Choices.results.length; i++) {
+            // Add an item
+            items.push({
+                label: fld.Choices.results[i],
+                type: Components.CheckboxGroupTypes.Switch
+            });
+        }
 
-                // Set the filters and resolve the promise
-                this._statusFilters = items;
-                resolve(items);
-            }, reject);
-        });
+        // Set the filters and resolve the promise
+        this._statusFilters = items;
     }
 
     // Gets the item id from the query string
@@ -81,10 +75,10 @@ export class DataSource {
                 onInitError: reject,
                 onInitialized: () => {
                     // Load the status filters
-                    this.loadStatusFilters().then(() => {
-                        // Resolve the request
-                        resolve();
-                    }, reject);
+                    this.loadStatusFilters();
+
+                    // Resolve the request
+                    resolve();
                 }
             });
         });

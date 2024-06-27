@@ -24,10 +24,10 @@
     "dependencies": {
         "datatables.net": "^1.13.7",
         "datatables.net-bs5": "^1.13.7",
-        "dattatable": "^2.9.37",
-        "gd-sprest-bs": "^10.10.96",
+        "dattatable": "^2.10.4",
+        "gd-sprest-bs": "^10.11.56",
         "jquery": "^3.7.1",
-        "moment": "^2.29.4"
+        "moment": "^2.30.1"
     },
     "devDependencies": {
         "@babel/core": "^7.23.3",
