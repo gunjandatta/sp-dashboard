@@ -22,10 +22,10 @@
     },
     "homepage": "https://github.com/gunjandatta/sp-dashboard#readme",
     "dependencies": {
-        "datatables.net": "^1.13.7",
-        "datatables.net-bs5": "^1.13.7",
+        "datatables.net": "^2.1.2",
+        "datatables.net-bs5": "^2.1.2",
         "dattatable": "^2.10.20",
-        "gd-sprest-bs": "^10.11.66",
+        "gd-sprest-bs": "^10.11.67",
         "jquery": "^3.7.1",
         "moment": "^2.30.1"
     },
