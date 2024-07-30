@@ -1,6 +1,5 @@
 import { Dashboard } from "dattatable";
 import { Components } from "gd-sprest-bs";
-import * as jQuery from "jquery";
 import { DataSource, IListItem } from "./ds";
 import Strings from "./strings";
 
