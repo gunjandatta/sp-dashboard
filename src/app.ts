@@ -62,56 +62,22 @@ export class App {
             },
             table: {
                 rows: DataSource.ListItems,
-                dtProps: {
-                    columnDefs: [
+                // Update the default datatables.net properties
+                onRendering: dtProps => {
+                    // Remove the ability to sort and search on the 1st column
+                    dtProps.columnDefs = [
                         {
                             "targets": 0,
                             "orderable": false,
                             "searchable": false
                         }
-                    ],
-                    drawCallback: function (settings) {
-                        let api = new jQuery.fn.dataTable.Api(settings) as any;
+                    ];
 
-                        // Styling option for striped rows
-                        jQuery(api.context[0].nTable).addClass('table-striped');
-
-                        // Align the text to be centered
-                        jQuery(api.context[0].nTableWrapper).find('.dt-info').parent().removeClass('col-md d-md-flex justify-content-between align-items-center');
-                        jQuery(api.context[0].nTableWrapper).find('.dt-info').addClass('text-center');
-
-                        // Remove the label spacing to align with paging
-                        jQuery(api.context[0].nTableWrapper).find('.dt-length label').addClass('d-none');
-
-                        // Push paging to the end
-                        jQuery(api.context[0].nTableWrapper).find('.dt-paging').addClass('d-flex justify-content-end mx-0 px-0');
-
-                        // Add spacing for the footer
-                        jQuery(api.context[0].nTableWrapper).find('.row:last-child').addClass('mb-1');
-                    },
-                    language: {
-                        lengthMenu: "_MENU_",
-                        paginate: {
-                            first: "First",
-                            last: "Last",
-                            next: "Next",
-                            previous: "Previous"
-                        }
-                    },
-                    layout: {
-                        top: null,
-                        topStart: null,
-                        topEnd: null,
-                        bottom: "info",
-                        bottomStart: "pageLength",
-                        bottomEnd: {
-                            paging: {
-                                type: "full_numbers"
-                            }
-                        }
-                    },
                     // Order by the 1st column by default; ascending
-                    order: [[1, "asc"]]
+                    dtProps.order = [[1, "asc"]];
+
+                    // Return the datatables.net properties
+                    return dtProps;
                 },
                 columns: [
                     {

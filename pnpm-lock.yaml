@@ -1,8 +1,8 @@
 dependencies:
   datatables.net: 2.1.2
   datatables.net-bs5: 2.1.2
-  dattatable: 2.10.20_d5775d0b360a877d6bdaf411dd5fdb1b
-  gd-sprest-bs: 10.11.67
+  dattatable: 2.10.25_8e48c15e69d2fc946fafc9d86bd6166b
+  gd-sprest-bs: 10.11.70
   jquery: 3.7.1
   moment: 2.30.1
 devDependencies:
@@ -1826,11 +1826,11 @@ packages:
     dev: false
     resolution:
       integrity: sha512-FZMH3bVqP6pKq/LwhFRoH22xW45bWt9eAdf7hmFrZkluXId6RNOr1EnrVvwHTo/f7l/rZX4wgHvnGvtOyj9Spw==
-  /dattatable/2.10.20_d5775d0b360a877d6bdaf411dd5fdb1b:
+  /dattatable/2.10.25_8e48c15e69d2fc946fafc9d86bd6166b:
     dependencies:
       datatables.net: 2.1.2
       datatables.net-bs5: 2.1.2
-      gd-sprest-bs: 10.11.67
+      gd-sprest-bs: 10.11.70
       jquery: 3.7.1
       moment: 2.30.1
     dev: false
@@ -1841,7 +1841,7 @@ packages:
       jquery: '*'
       moment: '*'
     resolution:
-      integrity: sha512-OiAFX1BWxVD+nlB62sPxF2evj0vSPORfHZKryN3kzYHLJHfXh1CBZ+zVaC7wGAXEr1dGbj4wFrgguIL89fANcA==
+      integrity: sha512-oC/XrM1SRT1Y/NrGX2ow/xskm2dAx88JhaIsL2SxFxjGxBvtE0fsaA61pfodUTvhhX5BjwbBhFAJmUa061x3Ww==
   /debug/4.3.4:
     dependencies:
       ms: 2.1.2
@@ -2016,7 +2016,7 @@ packages:
     dev: true
     resolution:
       integrity: sha512-7XHNxH7qX9xG5mIwxkhumTox/MIRNcOgDrxWsMt2pAr23WHp6MrRlN7FBSFpCpr+oVO0F744iUgR82nJMfG2SA==
-  /gd-bs/6.6.27:
+  /gd-bs/6.6.30:
     dependencies:
       '@popperjs/core': 2.11.8
       bootstrap: 5.3.3_@popperjs+core@2.11.8
@@ -2025,17 +2025,17 @@ packages:
       tippy.js: 6.3.7
     dev: false
     resolution:
-      integrity: sha512-urbsF1UB2y64HMO+SHUfFBOoBXDcVmYKKMO7InO7owBHAj2VPqqrd7ljEcOluRiuU9Pb4z1BQtZ9dY+FoLCHog==
-  /gd-sprest-bs/10.11.67:
+      integrity: sha512-ZmqsT850QXH+e56NtqvDOWyGVMDT3tkP+8aaKCKWpVGf4DOl+KNcc+c0yfOW9Wc+XYMKysRkJtWcF1hqldHHzw==
+  /gd-sprest-bs/10.11.70:
     dependencies:
       flatpickr: 4.6.13
-      gd-bs: 6.6.27
+      gd-bs: 6.6.30
       gd-sprest: 8.0.0
       gd-sprest-def: 1.4.7
       quill: 2.0.2
     dev: false
     resolution:
-      integrity: sha512-tw9ALSGzCU0T+IKhbitN7UYDAOlz+VG2mgslsKqxvuSOiVY+DGOLy1bRfxQ8UcIdO6bgzP7vpcDggsgwxvJAaw==
+      integrity: sha512-QXKRZb5XjKm3En0esDju44tGIpBJ49PKV+/FvR1NIiNKVqRn+U66/j5x0WBXnDIDamZ7s96eDb+FBSOby71CYQ==
   /gd-sprest-def/1.4.7:
     dev: false
     resolution:
@@ -3110,8 +3110,8 @@ specifiers:
   css-loader: ^6.8.1
   datatables.net: ^2.1.2
   datatables.net-bs5: ^2.1.2
-  dattatable: ^2.10.20
-  gd-sprest-bs: ^10.11.67
+  dattatable: ^2.10.25
+  gd-sprest-bs: ^10.11.70
   html-loader: ^3.1.2
   jquery: ^3.7.1
   moment: ^2.30.1
