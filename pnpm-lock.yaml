@@ -1,7 +1,7 @@
 dependencies:
   datatables.net: 2.1.2
   datatables.net-bs5: 2.1.2
-  dattatable: 2.10.26_8e48c15e69d2fc946fafc9d86bd6166b
+  dattatable: 2.10.27_8e48c15e69d2fc946fafc9d86bd6166b
   gd-sprest-bs: 10.11.70
   jquery: 3.7.1
   moment: 2.30.1
@@ -1826,7 +1826,7 @@ packages:
     dev: false
     resolution:
       integrity: sha512-FZMH3bVqP6pKq/LwhFRoH22xW45bWt9eAdf7hmFrZkluXId6RNOr1EnrVvwHTo/f7l/rZX4wgHvnGvtOyj9Spw==
-  /dattatable/2.10.26_8e48c15e69d2fc946fafc9d86bd6166b:
+  /dattatable/2.10.27_8e48c15e69d2fc946fafc9d86bd6166b:
     dependencies:
       datatables.net: 2.1.2
       datatables.net-bs5: 2.1.2
@@ -1841,7 +1841,7 @@ packages:
       jquery: '*'
       moment: '*'
     resolution:
-      integrity: sha512-jS3aJfLcsIGNTRjxb+Nw0YCvy+g6cTZBfhG9CcEAASWhpxEDw1/TzAzmXOlbZkpQRQH+26WQr+aLq1JsOj+WhA==
+      integrity: sha512-ZZ4doAeDzCUF/D95bUf7QBU+MpnX8TJ07GWdi8otCvBvt+dQg1CB5KAVISNkrPU1V/AysuYMEtaM/mP7Jzx2Vg==
   /debug/4.3.4:
     dependencies:
       ms: 2.1.2
@@ -3110,7 +3110,7 @@ specifiers:
   css-loader: ^6.8.1
   datatables.net: ^2.1.2
   datatables.net-bs5: ^2.1.2
-  dattatable: ^2.10.26
+  dattatable: ^2.10.27
   gd-sprest-bs: ^10.11.70
   html-loader: ^3.1.2
   jquery: ^3.7.1
