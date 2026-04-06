@@ -1,6 +1,9 @@
 {
     "compilerOptions": {
-        "target": "es5",
+        "ignoreDeprecations": "6.0",
+        "moduleResolution": "node",
+        "skipLibCheck": true,
+        "target": "es2015",
         "lib": [
             "dom",
             "es2015"

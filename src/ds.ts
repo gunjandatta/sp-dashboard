@@ -16,26 +16,28 @@ export interface IListItem extends Types.SP.ListItem {
  */
 export class DataSource {
     // List
-    private static _list: List<IListItem> = null;
+    private static _list: List<IListItem> = null as any;
     static get List(): List<IListItem> { return this._list; }
 
     // List Items
     static get ListItems(): IListItem[] { return this.List.Items; }
 
     // Status Filters
-    private static _statusFilters: Components.ICheckboxGroupItem[] = null;
+    private static _statusFilters: Components.ICheckboxGroupItem[] = null as any;
     static get StatusFilters(): Components.ICheckboxGroupItem[] { return this._statusFilters; }
     static loadStatusFilters() {
         let items: Components.ICheckboxGroupItem[] = [];
 
         // Parse the choices
-        let fld: Types.SP.FieldChoice = this.List.getField("Status");
-        for (let i = 0; i < fld.Choices.results.length; i++) {
-            // Add an item
-            items.push({
-                label: fld.Choices.results[i],
-                type: Components.CheckboxGroupTypes.Switch
-            });
+        let fld = this.List.getField("Status") as Types.SP.FieldChoice;
+        if (fld.Choices) {
+            for (let i = 0; i < fld.Choices.results.length; i++) {
+                // Add an item
+                items.push({
+                    label: fld.Choices.results[i],
+                    type: Components.CheckboxGroupTypes.Switch
+                });
+            }
         }
 
         // Set the filters and resolve the promise

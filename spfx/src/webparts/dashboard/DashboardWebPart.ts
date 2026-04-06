@@ -1,25 +1,23 @@
 import { Version } from '@microsoft/sp-core-library';
 import {
-  IPropertyPaneConfiguration,
-  PropertyPaneTextField
+  type IPropertyPaneConfiguration
 } from '@microsoft/sp-property-pane';
-import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base';
-import { escape } from '@microsoft/sp-lodash-subset';
+import { BaseClientSideWebPart, WebPartContext } from '@microsoft/sp-webpart-base';
 
-import styles from './DashboardWebPart.module.scss';
 import * as strings from 'DashboardWebPartStrings';
 
-import "main-lib";
-declare var SPDashboard;
+export interface IDashboardWebPartProps {}
 
-export interface IDashboardWebPartProps {
-  description: string;
-}
+// Reference the solution
+import "main-lib";
+declare const SPDashboard: {
+  render: (el: HTMLElement, context: WebPartContext) => void;
+};
 
 export default class DashboardWebPart extends BaseClientSideWebPart<IDashboardWebPartProps> {
 
   public render(): void {
-    // Render the dashboard
+    // Render the application
     SPDashboard.render(this.domElement, this.context);
   }
 
@@ -37,11 +35,7 @@ export default class DashboardWebPart extends BaseClientSideWebPart<IDashboardWe
           groups: [
             {
               groupName: strings.BasicGroupName,
-              groupFields: [
-                PropertyPaneTextField('description', {
-                  label: strings.DescriptionFieldLabel
-                })
-              ]
+              groupFields: []
             }
           ]
         }

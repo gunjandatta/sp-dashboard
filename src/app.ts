@@ -24,9 +24,9 @@ export class App {
                 items: [{
                     header: "By Status",
                     items: DataSource.StatusFilters,
-                    onFilter: (value: string) => {
+                    onFilter: (value) => {
                         // Filter the table
-                        dashboard.filter(2, value);
+                        dashboard.filter(2, value as string);
                     }
                 }]
             },
@@ -93,7 +93,7 @@ export class App {
                                         onClick: () => {
                                             // Show the display form
                                             DataSource.List.viewForm({
-                                                itemId: item.Id
+                                                itemId: item.Id as number
                                             });
                                         }
                                     },
@@ -103,7 +103,7 @@ export class App {
                                         onClick: () => {
                                             // Show the edit form
                                             DataSource.List.editForm({
-                                                itemId: item.Id,
+                                                itemId: item.Id as number,
                                                 onUpdate: () => {
                                                     // Refresh the data
                                                     DataSource.refresh().then(() => {

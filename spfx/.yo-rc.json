@@ -1,11 +1,20 @@
 {
   "@microsoft/generator-sharepoint": {
+    "plusBeta": false,
     "isCreatingSolution": true,
+    "nodeVersion": "18.20.8",
+    "sdksVersions": {
+      "@microsoft/microsoft-graph-client": "3.0.2",
+      "@microsoft/teams-js": "2.12.0"
+    },
+    "version": "1.18.2",
+    "libraryName": "sp-dashboard",
+    "libraryId": "a7a4d120-c8d7-449f-bb58-e1e4e4c9f235",
     "environment": "spo",
-    "version": "1.12.1",
-    "libraryName": "dashboard",
-    "libraryId": "56877a9d-8a61-40e5-9744-1de2c79a31e7",
     "packageManager": "npm",
+    "solutionName": "sp-dashboard",
+    "solutionShortDescription": "sp-dashboard description",
+    "skipFeatureDeployment": true,
     "isDomainIsolated": false,
     "componentType": "webpart"
   }

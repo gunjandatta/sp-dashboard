@@ -11,7 +11,7 @@ import "./styles.scss";
 // Create the global variable for this solution
 const GlobalVariable = {
     Configuration,
-    render: (el, context?, sourceUrl?: string) => {
+    render: (el: HTMLElement, context?: any, sourceUrl?: string) => {
         // See if the page context exists
         if (context) {
             // Set the context
@@ -51,7 +51,7 @@ const GlobalVariable = {
 };
 
 // Make is available in the DOM
-window[Strings.GlobalVariable] = GlobalVariable;
+(window as any)[Strings.GlobalVariable] = GlobalVariable;
 
 // Get the element and render the app if it is found
 let elApp = document.querySelector("#" + Strings.AppElementId) as HTMLElement;
