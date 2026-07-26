@@ -1,0 +1,5 @@
+allowBuilds:
+  '@parcel/watcher': true
+  core-js: true
+minimumReleaseAgeExclude:
+  - dattatable@2.11.76 || 2.11.77 || 2.11.78 || 2.11.79
