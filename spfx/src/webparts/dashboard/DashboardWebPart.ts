@@ -1,12 +1,10 @@
 import { Version } from '@microsoft/sp-core-library';
 import {
-  type IPropertyPaneConfiguration
+  type IPropertyPaneConfiguration,
 } from '@microsoft/sp-property-pane';
 import { BaseClientSideWebPart, WebPartContext } from '@microsoft/sp-webpart-base';
 
-import * as strings from 'DashboardWebPartStrings';
-
-export interface IDashboardWebPartProps {}
+export interface IDashboardWebPartProps { }
 
 // Reference the solution
 import "main-lib";
@@ -27,19 +25,7 @@ export default class DashboardWebPart extends BaseClientSideWebPart<IDashboardWe
 
   protected getPropertyPaneConfiguration(): IPropertyPaneConfiguration {
     return {
-      pages: [
-        {
-          header: {
-            description: strings.PropertyPaneDescription
-          },
-          groups: [
-            {
-              groupName: strings.BasicGroupName,
-              groupFields: []
-            }
-          ]
-        }
-      ]
+      pages: []
     };
   }
 }
