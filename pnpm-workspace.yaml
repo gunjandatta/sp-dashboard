@@ -2,4 +2,6 @@ allowBuilds:
   '@parcel/watcher': true
   core-js: true
 minimumReleaseAgeExclude:
-  - dattatable@2.11.76 || 2.11.77 || 2.11.78 || 2.11.79 || 2.11.92
+  - dattatable@2.11.76 || 2.11.77 || 2.11.78 || 2.11.79 || 2.11.92 || 2.11.96 || 2.11.97
+  - gd-bs@6.9.30
+  - gd-sprest-bs@10.15.97
